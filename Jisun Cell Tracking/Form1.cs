@@ -13,7 +13,7 @@ using System.Diagnostics;
 using Microsoft.VisualBasic;
 
 //Written by: Jeffrey Chiu
-//July 28 2015
+//July 28 2015x`
 
 namespace Jisun_Cell_Tracking
 {
@@ -98,7 +98,18 @@ namespace Jisun_Cell_Tracking
             if (pictureBox1.Image != null)
                 pictureBox1.Image.Dispose();
 
-            pictureBox1.Image = Image.FromFile(imageFilePath[currentImage]);
+            Image image = Image.FromFile(imageFilePath[currentImage]);
+
+            //Convert if indexed to non-indexed - NOTE: only converts 8bppIndexed right now because I didn't have any other images to test - Jeff 2018/04/14
+            if (image.PixelFormat == System.Drawing.Imaging.PixelFormat.Format8bppIndexed)
+            {
+                pictureBox1.Image = Indexed2Image(image, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            }
+            else
+            {
+                pictureBox1.Image = image;
+            }
+            
 
             //Draw all the circles of the previous images. For example, if you are on image number 20, it will draw the circles from images 1 to 19
             //Might have performance issues in this method once we start getting to the upper data points
@@ -155,6 +166,16 @@ namespace Jisun_Cell_Tracking
             //Update the cell # label
             cellNumberLabel.Text = "CELL #: " + cellNumber.ToString();
         }
+
+        public static Image Indexed2Image(Image img, System.Drawing.Imaging.PixelFormat fmt)
+        {
+            Image bmp = new Bitmap(img.Width, img.Height, fmt);
+            Graphics gr = Graphics.FromImage(bmp);
+            gr.DrawImage(img, 0, 0);
+            gr.Dispose();
+            return bmp;
+        }
+
 
         //Keyboard shortcuts for previous and next image
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
