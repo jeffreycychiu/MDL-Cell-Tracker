@@ -2,7 +2,8 @@
 Simple program to manuall track cell XY location in a series of images
 
 ## Install
-Download **Release** folder from this repository and run **MDL Cell Tracker.exe**
+- Download **Release** folder from this repository and run **MDL Cell Tracker.exe**
+- *Note: Software only works in Windows. Tested on Windows 7 and 10.*
 
 ## Using the software
 - Run **MDL Cell Tracker.exe**
