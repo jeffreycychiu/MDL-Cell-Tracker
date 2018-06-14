@@ -7,7 +7,7 @@ Simple program to manuall track cell XY location in a series of images
 
 ## Using the software
 - Run **MDL Cell Tracker.exe**
-- Click on the **Image Folder** button on the top left and navigate to the folder containing all of your images. *(Note: A folder with sample pictures has been included in this repository)*
+- Click on the **Image Folder** button on the top left and navigate to the folder containing all of your images. ***Only .bmp file format supported currently*** *(Note: A folder with sample pictures has been included in this repository)*
 - **Left Click** on a cell to put down the first tracking point
 - Use the **right arrow** and **left arrow** keys to move to the next or previous picture
 - **Right click** to remove the tracking point on the current picture
