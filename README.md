@@ -1,5 +1,6 @@
 # MDL-Cell-Tracker
 Program to manually track cell XY location in a series of images.
+![Example image](https://github.com/jeffreycychiu/MDL-Cell-Tracker/blob/master/Example.png)
 
 ## Install
 - Download **Release** folder from this repository and run **MDL Cell Tracker.exe**
