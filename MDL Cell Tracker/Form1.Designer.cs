@@ -68,7 +68,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(126, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(294, 22);
+            this.textBox1.Size = new System.Drawing.Size(294, 20);
             this.textBox1.TabIndex = 1;
             // 
             // pictureBox1
@@ -112,7 +112,7 @@
             this.imageLabel.AutoSize = true;
             this.imageLabel.Location = new System.Drawing.Point(934, 15);
             this.imageLabel.Name = "imageLabel";
-            this.imageLabel.Size = new System.Drawing.Size(86, 17);
+            this.imageLabel.Size = new System.Drawing.Size(68, 13);
             this.imageLabel.TabIndex = 5;
             this.imageLabel.Text = "Image:??/??";
             this.imageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -123,10 +123,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(1045, 59);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(137, 404);
+            this.listBox1.Size = new System.Drawing.Size(137, 394);
             this.listBox1.TabIndex = 6;
             // 
             // label1
@@ -135,7 +134,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1045, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 17);
+            this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Loaded Images:";
             // 
@@ -157,7 +156,7 @@
             this.cellNumberLabel.AutoSize = true;
             this.cellNumberLabel.Location = new System.Drawing.Point(436, 15);
             this.cellNumberLabel.Name = "cellNumberLabel";
-            this.cellNumberLabel.Size = new System.Drawing.Size(58, 17);
+            this.cellNumberLabel.Size = new System.Drawing.Size(46, 13);
             this.cellNumberLabel.TabIndex = 9;
             this.cellNumberLabel.Text = "CELL #:";
             // 
@@ -207,7 +206,7 @@
             this.cursorLabel.AutoSize = true;
             this.cursorLabel.Location = new System.Drawing.Point(12, 475);
             this.cursorLabel.Name = "cursorLabel";
-            this.cursorLabel.Size = new System.Drawing.Size(94, 17);
+            this.cursorLabel.Size = new System.Drawing.Size(78, 13);
             this.cursorLabel.TabIndex = 14;
             this.cursorLabel.Text = "X: ### Y: ###";
             // 
@@ -217,9 +216,9 @@
             this.showPrevCheckBox.AutoSize = true;
             this.showPrevCheckBox.Checked = true;
             this.showPrevCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showPrevCheckBox.Location = new System.Drawing.Point(138, 473);
+            this.showPrevCheckBox.Location = new System.Drawing.Point(138, 477);
             this.showPrevCheckBox.Name = "showPrevCheckBox";
-            this.showPrevCheckBox.Size = new System.Drawing.Size(166, 21);
+            this.showPrevCheckBox.Size = new System.Drawing.Size(131, 17);
             this.showPrevCheckBox.TabIndex = 15;
             this.showPrevCheckBox.Text = "Show Prev Movement";
             this.showPrevCheckBox.UseVisualStyleBackColor = true;
@@ -229,11 +228,9 @@
             // 
             this.autoCentreCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.autoCentreCheckBox.AutoSize = true;
-            this.autoCentreCheckBox.Checked = true;
-            this.autoCentreCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoCentreCheckBox.Location = new System.Drawing.Point(310, 471);
+            this.autoCentreCheckBox.Location = new System.Drawing.Point(310, 475);
             this.autoCentreCheckBox.Name = "autoCentreCheckBox";
-            this.autoCentreCheckBox.Size = new System.Drawing.Size(142, 21);
+            this.autoCentreCheckBox.Size = new System.Drawing.Size(109, 17);
             this.autoCentreCheckBox.TabIndex = 16;
             this.autoCentreCheckBox.Text = "Auto-Centre         ";
             this.autoCentreCheckBox.UseVisualStyleBackColor = true;
@@ -254,7 +251,7 @@
             this.loadCSVTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.loadCSVTextBox.Location = new System.Drawing.Point(892, 472);
             this.loadCSVTextBox.Name = "loadCSVTextBox";
-            this.loadCSVTextBox.Size = new System.Drawing.Size(289, 22);
+            this.loadCSVTextBox.Size = new System.Drawing.Size(289, 20);
             this.loadCSVTextBox.TabIndex = 18;
             // 
             // openFileDialog1
