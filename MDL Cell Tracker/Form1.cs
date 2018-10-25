@@ -63,6 +63,17 @@ namespace MDL_Cell_Tracker
                     updateImage();          
                 }
 
+                //searches folder for tiff files (ADDED 2018-10)
+                foreach (var imageFile in directInfo.GetFiles("*.tif"))
+                {
+                    //Fill the list with the paths of all the pictures
+                    imageFilePath.Add(imageFile.FullName);
+                    listBox1.Items.Add(imageFile.Name);
+                    numImages++;
+                    updateImage();
+                }
+
+
                 //load the first image into the picture box
                 pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
                 originalPictureWidth = pictureBox1.Width;
@@ -113,7 +124,6 @@ namespace MDL_Cell_Tracker
 
             //Draw all the circles of the previous images. For example, if you are on image number 20, it will draw the circles from images 1 to 19
             //Might have performance issues in this method once we start getting to the upper data points
-            //TODO: Draw line between each point as well
             if (showPrevCheckBox.Checked)
             {
                 int xLast=0, yLast=0;
@@ -134,13 +144,6 @@ namespace MDL_Cell_Tracker
                     xLast = prevDataPoint.xPosition;
                     yLast = prevDataPoint.yPosition;
 
-                    //Draw the number of the cell next to the latest number
-                    /*
-                    if (prevDataPoint.pictureNum == currentImage + 1)
-                    {
-                        DrawCell(prevDataPoint.xPosition, prevDataPoint.yPosition, prevDataPoint.cell);
-                    }
-                    */
                 }
             }
             else
@@ -166,7 +169,8 @@ namespace MDL_Cell_Tracker
             //Update the cell # label
             cellNumberLabel.Text = "CELL #: " + cellNumber.ToString();
         }
-
+        
+        //Converts the 8bppIndexed picture format Sampath was using into 24bppIndexed to be compatible with the rest of the program.
         public static Image Indexed2Image(Image img, System.Drawing.Imaging.PixelFormat fmt)
         {
             Image bmp = new Bitmap(img.Width, img.Height, fmt);
@@ -351,11 +355,9 @@ namespace MDL_Cell_Tracker
             penColorPicker(numCell, out penColor);
             System.Drawing.Pen myPen = new System.Drawing.Pen(penColor);
 
-            //Draw circle where the mouse clicked  
-            
+            //Draw circle where the mouse clicked
             System.Drawing.Graphics formGraphics;
             formGraphics = Graphics.FromImage(pictureBox1.Image);
-            //formGraphics.DrawEllipse(myPen, new Rectangle(xPos-(ROI_CIRCLE_DIAM/2), yPos-(ROI_CIRCLE_DIAM/2), ROI_CIRCLE_DIAM, ROI_CIRCLE_DIAM));
             SolidBrush brush = new SolidBrush(penColor);
             formGraphics.FillRectangle(brush, xPos, yPos, 3, 3);
             myPen.Dispose();
