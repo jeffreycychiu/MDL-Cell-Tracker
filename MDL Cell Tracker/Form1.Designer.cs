@@ -49,6 +49,9 @@
             this.loadCSVButton = new System.Windows.Forms.Button();
             this.loadCSVTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.channel1CheckBox = new System.Windows.Forms.CheckBox();
+            this.channel2CheckBox = new System.Windows.Forms.CheckBox();
+            this.channel3CheckBox = new System.Windows.Forms.CheckBox();
             imageFolderBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -216,7 +219,7 @@
             this.showPrevCheckBox.AutoSize = true;
             this.showPrevCheckBox.Checked = true;
             this.showPrevCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showPrevCheckBox.Location = new System.Drawing.Point(138, 477);
+            this.showPrevCheckBox.Location = new System.Drawing.Point(138, 476);
             this.showPrevCheckBox.Name = "showPrevCheckBox";
             this.showPrevCheckBox.Size = new System.Drawing.Size(131, 17);
             this.showPrevCheckBox.TabIndex = 15;
@@ -228,7 +231,7 @@
             // 
             this.autoCentreCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.autoCentreCheckBox.AutoSize = true;
-            this.autoCentreCheckBox.Location = new System.Drawing.Point(310, 475);
+            this.autoCentreCheckBox.Location = new System.Drawing.Point(301, 476);
             this.autoCentreCheckBox.Name = "autoCentreCheckBox";
             this.autoCentreCheckBox.Size = new System.Drawing.Size(109, 17);
             this.autoCentreCheckBox.TabIndex = 16;
@@ -258,10 +261,52 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // channel1CheckBox
+            // 
+            this.channel1CheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.channel1CheckBox.AutoSize = true;
+            this.channel1CheckBox.Checked = true;
+            this.channel1CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.channel1CheckBox.Location = new System.Drawing.Point(442, 476);
+            this.channel1CheckBox.Name = "channel1CheckBox";
+            this.channel1CheckBox.Size = new System.Drawing.Size(71, 17);
+            this.channel1CheckBox.TabIndex = 19;
+            this.channel1CheckBox.Text = "Channel1";
+            this.channel1CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // channel2CheckBox
+            // 
+            this.channel2CheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.channel2CheckBox.AutoSize = true;
+            this.channel2CheckBox.Checked = true;
+            this.channel2CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.channel2CheckBox.Location = new System.Drawing.Point(545, 476);
+            this.channel2CheckBox.Name = "channel2CheckBox";
+            this.channel2CheckBox.Size = new System.Drawing.Size(71, 17);
+            this.channel2CheckBox.TabIndex = 20;
+            this.channel2CheckBox.Text = "Channel2";
+            this.channel2CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // channel3CheckBox
+            // 
+            this.channel3CheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.channel3CheckBox.AutoSize = true;
+            this.channel3CheckBox.Checked = true;
+            this.channel3CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.channel3CheckBox.Location = new System.Drawing.Point(648, 476);
+            this.channel3CheckBox.Name = "channel3CheckBox";
+            this.channel3CheckBox.Size = new System.Drawing.Size(71, 17);
+            this.channel3CheckBox.TabIndex = 21;
+            this.channel3CheckBox.Text = "Channel3";
+            this.channel3CheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1194, 498);
+            this.Controls.Add(this.channel3CheckBox);
+            this.Controls.Add(this.channel2CheckBox);
+            this.Controls.Add(this.channel1CheckBox);
             this.Controls.Add(this.loadCSVTextBox);
             this.Controls.Add(this.loadCSVButton);
             this.Controls.Add(this.autoCentreCheckBox);
@@ -311,6 +356,9 @@
         private System.Windows.Forms.Button loadCSVButton;
         private System.Windows.Forms.TextBox loadCSVTextBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.CheckBox channel1CheckBox;
+        private System.Windows.Forms.CheckBox channel2CheckBox;
+        private System.Windows.Forms.CheckBox channel3CheckBox;
     }
 }
 
