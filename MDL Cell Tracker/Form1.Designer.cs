@@ -52,6 +52,7 @@
             this.channel1CheckBox = new System.Windows.Forms.CheckBox();
             this.channel2CheckBox = new System.Windows.Forms.CheckBox();
             this.channel3CheckBox = new System.Windows.Forms.CheckBox();
+            this.TIFFCheckBox = new System.Windows.Forms.CheckBox();
             imageFolderBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -231,7 +232,7 @@
             // 
             this.autoCentreCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.autoCentreCheckBox.AutoSize = true;
-            this.autoCentreCheckBox.Location = new System.Drawing.Point(301, 476);
+            this.autoCentreCheckBox.Location = new System.Drawing.Point(295, 476);
             this.autoCentreCheckBox.Name = "autoCentreCheckBox";
             this.autoCentreCheckBox.Size = new System.Drawing.Size(109, 17);
             this.autoCentreCheckBox.TabIndex = 16;
@@ -267,12 +268,13 @@
             this.channel1CheckBox.AutoSize = true;
             this.channel1CheckBox.Checked = true;
             this.channel1CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.channel1CheckBox.Location = new System.Drawing.Point(442, 476);
+            this.channel1CheckBox.Location = new System.Drawing.Point(504, 476);
             this.channel1CheckBox.Name = "channel1CheckBox";
             this.channel1CheckBox.Size = new System.Drawing.Size(71, 17);
             this.channel1CheckBox.TabIndex = 19;
             this.channel1CheckBox.Text = "Channel1";
             this.channel1CheckBox.UseVisualStyleBackColor = true;
+            this.channel1CheckBox.CheckedChanged += new System.EventHandler(this.channel1CheckBox_CheckedChanged);
             // 
             // channel2CheckBox
             // 
@@ -280,7 +282,7 @@
             this.channel2CheckBox.AutoSize = true;
             this.channel2CheckBox.Checked = true;
             this.channel2CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.channel2CheckBox.Location = new System.Drawing.Point(545, 476);
+            this.channel2CheckBox.Location = new System.Drawing.Point(601, 476);
             this.channel2CheckBox.Name = "channel2CheckBox";
             this.channel2CheckBox.Size = new System.Drawing.Size(71, 17);
             this.channel2CheckBox.TabIndex = 20;
@@ -293,17 +295,31 @@
             this.channel3CheckBox.AutoSize = true;
             this.channel3CheckBox.Checked = true;
             this.channel3CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.channel3CheckBox.Location = new System.Drawing.Point(648, 476);
+            this.channel3CheckBox.Location = new System.Drawing.Point(698, 476);
             this.channel3CheckBox.Name = "channel3CheckBox";
             this.channel3CheckBox.Size = new System.Drawing.Size(71, 17);
             this.channel3CheckBox.TabIndex = 21;
             this.channel3CheckBox.Text = "Channel3";
             this.channel3CheckBox.UseVisualStyleBackColor = true;
             // 
+            // TIFFCheckBox
+            // 
+            this.TIFFCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TIFFCheckBox.AutoSize = true;
+            this.TIFFCheckBox.Checked = true;
+            this.TIFFCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TIFFCheckBox.Location = new System.Drawing.Point(430, 476);
+            this.TIFFCheckBox.Name = "TIFFCheckBox";
+            this.TIFFCheckBox.Size = new System.Drawing.Size(48, 17);
+            this.TIFFCheckBox.TabIndex = 22;
+            this.TIFFCheckBox.Text = "TIFF";
+            this.TIFFCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1194, 498);
+            this.Controls.Add(this.TIFFCheckBox);
             this.Controls.Add(this.channel3CheckBox);
             this.Controls.Add(this.channel2CheckBox);
             this.Controls.Add(this.channel1CheckBox);
@@ -357,8 +373,9 @@
         private System.Windows.Forms.TextBox loadCSVTextBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckBox channel1CheckBox;
-        private System.Windows.Forms.CheckBox channel2CheckBox;
         private System.Windows.Forms.CheckBox channel3CheckBox;
+        private System.Windows.Forms.CheckBox TIFFCheckBox;
+        private System.Windows.Forms.CheckBox channel2CheckBox;
     }
 }
 

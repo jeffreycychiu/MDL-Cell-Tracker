@@ -11,6 +11,7 @@ using System.IO;
 using OpenCvSharp;
 using System.Diagnostics;
 using Microsoft.VisualBasic;
+using System.Drawing.Imaging;
 
 //Written by: Jeffrey Chiu
 //July 28 2015x`
@@ -109,6 +110,9 @@ namespace MDL_Cell_Tracker
             if (pictureBox1.Image != null)
                 pictureBox1.Image.Dispose();
 
+            
+            //This converts image to bitmap
+            //FOR TIFF: 3 CHANNEL TIF IS SAVED AS RGB CHANNELS I THINK (2018-10 JEFF)
             Image image = Image.FromFile(imageFilePath[currentImage]);
 
             //Convert if indexed to non-indexed - NOTE: only converts 8bppIndexed right now because I didn't have any other images to test - Jeff 2018/04/14
@@ -116,10 +120,17 @@ namespace MDL_Cell_Tracker
             {
                 pictureBox1.Image = Indexed2Image(image, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             }
+            else if (TIFFCheckBox.Checked == true)
+            {
+                Bitmap bmpImage = new Bitmap(image);
+                bmpImage = separateChannelTiff(bmpImage, channel1CheckBox.Checked, channel2CheckBox.Checked, channel3CheckBox.Checked);
+                pictureBox1.Image = bmpImage;
+            }
             else
             {
                 pictureBox1.Image = image;
             }
+
             
 
             //Draw all the circles of the previous images. For example, if you are on image number 20, it will draw the circles from images 1 to 19
@@ -170,6 +181,34 @@ namespace MDL_Cell_Tracker
             cellNumberLabel.Text = "CELL #: " + cellNumber.ToString();
         }
         
+        //Separate channels in tiff image
+        public static Bitmap separateChannelTiff(Bitmap img, bool ch1, bool ch2, bool ch3)
+        {
+            Bitmap newImg = new Bitmap(img);
+
+            int ch1Int = Convert.ToInt32(ch1);
+            int ch2Int = Convert.ToInt32(ch2);
+            int ch3Int = Convert.ToInt32(ch3);
+
+            for (int y = 0; y < img.Height; y++)
+            {
+                for (int x = 0; x < img.Width; x++)
+                {
+                    //get pixel values
+                    Color p = img.GetPixel(x, y);
+                    int a = p.A;
+                    int r = p.R;
+                    int g = p.G;
+                    int b = p.B;
+
+                    newImg.SetPixel(x, y, Color.FromArgb(a, r * ch1Int, g * ch2Int, b * ch3Int));
+
+                }
+            }
+
+            return newImg;
+        }
+
         //Converts the 8bppIndexed picture format Sampath was using into 24bppIndexed to be compatible with the rest of the program.
         public static Image Indexed2Image(Image img, System.Drawing.Imaging.PixelFormat fmt)
         {
@@ -552,6 +591,22 @@ namespace MDL_Cell_Tracker
             string xyPosition = "X:" + point.X + " Y:" + point.Y;
             cursorLabel.Text = xyPosition;
         }
+
+        private void channel1CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            updateImage();
+        }
+
+        private void channel2CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            updateImage();
+        }
+
+        private void channel3CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            updateImage();
+        }
+
     }
 
     //Class that stores the information of the location of each cell. This is the data that gets exported.
