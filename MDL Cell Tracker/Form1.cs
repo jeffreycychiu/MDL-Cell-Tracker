@@ -116,15 +116,30 @@ namespace MDL_Cell_Tracker
             Image image = Image.FromFile(imageFilePath[currentImage]);
 
             //Convert if indexed to non-indexed - NOTE: only converts 8bppIndexed right now because I didn't have any other images to test - Jeff 2018/04/14
-            if (image.PixelFormat == System.Drawing.Imaging.PixelFormat.Format8bppIndexed)
+            if (TIFFCheckBox.Checked == true)
             {
-                pictureBox1.Image = Indexed2Image(image, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            }
-            else if (TIFFCheckBox.Checked == true)
-            {
+                //Old way to RGB separate the 3-channel TIFF
+                /*
                 Bitmap bmpImage = new Bitmap(image);
                 bmpImage = separateChannelTiff(bmpImage, channel1CheckBox.Checked, channel2CheckBox.Checked, channel3CheckBox.Checked);
                 pictureBox1.Image = bmpImage;
+                */
+
+                //Multi-page tif support
+                int pageCount = image.GetFrameCount(FrameDimension.Page);
+                if (channel1CheckBox.Checked == true && pageCount - 1 >= 1)
+                    image.SelectActiveFrame(FrameDimension.Page, 0);
+                else if (channel2CheckBox.Checked == true && pageCount-1 >= 2)
+                    image.SelectActiveFrame(FrameDimension.Page, 1);
+                else if (channel3CheckBox.Checked == true && pageCount-1 >= 3)
+                    image.SelectActiveFrame(FrameDimension.Page, 2);
+
+                pictureBox1.Image = image;
+
+            }
+            else if (image.PixelFormat == System.Drawing.Imaging.PixelFormat.Format8bppIndexed)
+            {
+                pictureBox1.Image = Indexed2Image(image, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             }
             else
             {
@@ -594,7 +609,7 @@ namespace MDL_Cell_Tracker
 
         private void channel1CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            updateImage();
+            updateImage();        
         }
 
         private void channel2CheckBox_CheckedChanged(object sender, EventArgs e)

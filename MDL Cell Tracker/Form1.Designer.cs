@@ -280,8 +280,6 @@
             // 
             this.channel2CheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.channel2CheckBox.AutoSize = true;
-            this.channel2CheckBox.Checked = true;
-            this.channel2CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.channel2CheckBox.Location = new System.Drawing.Point(601, 476);
             this.channel2CheckBox.Name = "channel2CheckBox";
             this.channel2CheckBox.Size = new System.Drawing.Size(71, 17);
@@ -293,8 +291,6 @@
             // 
             this.channel3CheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.channel3CheckBox.AutoSize = true;
-            this.channel3CheckBox.Checked = true;
-            this.channel3CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.channel3CheckBox.Location = new System.Drawing.Point(698, 476);
             this.channel3CheckBox.Name = "channel3CheckBox";
             this.channel3CheckBox.Size = new System.Drawing.Size(71, 17);
