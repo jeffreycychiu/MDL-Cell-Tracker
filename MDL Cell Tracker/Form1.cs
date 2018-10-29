@@ -127,14 +127,15 @@ namespace MDL_Cell_Tracker
 
                 //Multi-page tif support
                 int pageCount = image.GetFrameCount(FrameDimension.Page);
-                if (channel1CheckBox.Checked == true && pageCount - 1 >= 1)
+                if (channel1CheckBox.Checked == true)
                     image.SelectActiveFrame(FrameDimension.Page, 0);
-                else if (channel2CheckBox.Checked == true && pageCount-1 >= 2)
+                else if (channel2CheckBox.Checked == true)
                     image.SelectActiveFrame(FrameDimension.Page, 1);
-                else if (channel3CheckBox.Checked == true && pageCount-1 >= 3)
+                else if (channel3CheckBox.Checked == true)
                     image.SelectActiveFrame(FrameDimension.Page, 2);
 
-                pictureBox1.Image = image;
+                //pictureBox1.Image = image;
+                pictureBox1.Image = Indexed2Image(image, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
             }
             else if (image.PixelFormat == System.Drawing.Imaging.PixelFormat.Format8bppIndexed)
